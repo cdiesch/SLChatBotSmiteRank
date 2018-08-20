@@ -1,0 +1,53 @@
+{
+  "output_file": "settings\\SmiteRank_settings.json",
+
+  "smiteIGN": {
+    "type": "textbox",
+    "value": "KingSalamander",
+    "label": "Smite name",
+    "tooltip": "Your Smite in game name.",
+    "group": "Settings"
+  },
+
+  "gameMode": {
+    "type": "dropdown",
+    "value": "Ranked: Conquest",
+    "label": "Game Mode",
+    "tooltip": "The ranked game mode to retrieve current stats for.",
+    "items": [
+      "Ranked: Conquest",
+      "Ranked: Duel",
+      "Ranked: Joust (3v3)"
+    ],
+    "group": "Settings"
+  },
+
+  "platform": {
+    "type": "dropdown",
+    "value": "PC",
+    "label": "Platform",
+    "tooltip": "The platform you play on.",
+    "items": [
+      "PC",
+      "Xbox",
+      "PS4"
+    ],
+    "group": "Settings"
+  },
+
+  "responseStr": {
+    "type": "textbox",
+    "value": "@$username $ign rank in $mode: $division ($tp TP) Smite Guru elo: $elo (more info: $sg_page).",
+    "label": "Response Format",
+    "tooltip": "The format for the response message.\n   $ign: Your smite IGN.\n   $mode: The game mode being used.\n   $division: Your current division.\n   $tp: Your current TP value.\n   $elo: Your smite guru elo.\n   $sg_page: Your smite guru page.",
+    "group": "Response"
+  },
+
+  "command": {
+    "type": "textbox",
+    "value": "!rank",
+    "label": "Command",
+    "tooltip": "The command used to execute this script",
+    "group": "Settings"
+  }
+}
