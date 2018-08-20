@@ -39,7 +39,7 @@
     "type": "textbox",
     "value": "@$username $ign rank in $mode: $division ($tp TP) Smite Guru elo: $elo (more info: $sg_page).",
     "label": "Response Format",
-    "tooltip": "The format for the response message.\n   $ign: Your smite IGN.\n   $mode: The game mode being used.\n   $division: Your current division.\n   $tp: Your current TP value.\n   $elo: Your smite guru elo.\n   $sg_page: Your smite guru page.",
+    "tooltip": "The format for the response message.\n   $ign: Your smite IGN.\n   $mode: The game mode being used.\n   $division: Your current division.\n   $tp: Your current TP value.\n   $elo: Your smite guru elo.\n   $sg_page: Your smite guru page.\n   $username: The name of the chat user to call the command.",
     "group": "Response"
   },
 
