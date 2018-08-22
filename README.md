@@ -6,6 +6,7 @@
 ### Requirements:
    - To set up this script you Must have [Python 2.7](https://www.python.org/download/releases/2.7/) installed (required for     streamlabs chatbot).
    - The python.exe file MUST be under C:\Python27.
+   - The Streamlabs Chatbot must be set up. The documentation for the chatbot can be found [here](https://cdn.streamlabs.com/chatbot/Documentation.pdf)
 ### Instructions
    1) Download the SmiteRank folder (it will download as SmiteRank.zip)
    2) In Streamlabs chatbot select the scripts menu.
