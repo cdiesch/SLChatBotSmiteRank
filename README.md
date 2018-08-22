@@ -30,8 +30,8 @@
  The command you wish the script to execute on (!rank by default).
 ### Response:
 
- The format of the response you wish to have.
-#### Response format keys:
+ The format of the response you wish to have, options for the response are listed below.
+#### Response Options:
    1) $ign - The IGN (in game name) of the smite account stats have been loaded for.
    2) $mode - The game mode stats have been loaded for.
    3) $division - The current ranked division.
