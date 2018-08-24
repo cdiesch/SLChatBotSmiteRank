@@ -39,4 +39,9 @@
    5) $elo - The current smite guru elo value.
    6) $sg_page - The smite guru page for the given smite account.
    7) $username - The name of the chat user who called this command.
+   8) $wins - The number of wins.
+   9) $losses - The number of losses.
+   10) $matches - The total number of matches played.
+   11) $winrate - The winrate.
+   12) $percentile - The percentile of the player.
        
