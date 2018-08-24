@@ -12,7 +12,7 @@ ScriptName = 'SmiteRank'
 Website = 'http://wwww.twitch.tv/TheKingSalamander'
 Description = 'Gets the smite rank of the streamer.'
 Creator = 'Chris Diesch'
-Version = '1.0.0'
+Version = '1.0.1'
 
 hdr = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari'
                      '/537.11'}
@@ -32,6 +32,11 @@ tp_key = '$tp'
 elo_key = '$elo'
 url_key = '$sg_page'
 user_tag = '$username'
+percentile_tag = '$percentile'
+win_tag = '$wins'
+loss_tag = '$losses'
+wr_tag = '$winrate'
+matches_tag = '$matches'
 
 # The default settings
 settings = {ign_tag: 'KingSalamander',
@@ -80,14 +85,20 @@ def Execute(data):
             message += out.read().replace(os.linesep, '')
         info = json.loads(message)
 
-        message = settings[format_tag].\
+        message = settings[format_tag]. \
+            replace(user_tag, data.User). \
             replace(ign_key, settings[ign_tag]).\
             replace(mode_key, settings[mode_tag]).\
             replace(div_key, info['division']).\
             replace(tp_key, info['tp']).\
             replace(elo_key, info['elo']).\
             replace(url_key, info['url']).\
-            replace(user_tag, data.User)
+            replace(percentile_tag, info['percentile']).\
+            replace(win_tag, info['win']).\
+            replace(loss_tag, info['loss']).\
+            replace(wr_tag, info['wr']).\
+            replace(percentile_tag, info['percentile']).\
+            replace(matches_tag, info['matches'])
         # print(message)
         Parent.SendTwitchMessage(message)
 

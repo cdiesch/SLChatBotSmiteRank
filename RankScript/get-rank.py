@@ -24,7 +24,14 @@ _ARGS = None
 command = '!rank'
 IGN_TO_SG = 'http://smite.guru/profile/$platform/$player_name/ranked'
 PLATFORM_MAPPING = {'PC': "pc", 'Xbox': 'xb', 'Playstation': 'ps'}
-RANK_REGEX = r'.*%(?P<division>[A-Za-z ]*)(?P<elo>[0-9,]*)Elo(?P<tp>[0-9]*)TP.*'
+RANK_REGEX = r'.*Top (?P<percentile>[0-9.]*)%' \
+             r'(?P<division>[A-Za-z ]*)' \
+             r'(?P<elo>[0-9,]*)Elo' \
+             r'(?P<tp>[0-9]*)TP' \
+             r'(?P<win>[0-9]*)W' \
+             r'(?P<loss>[0-9]*L)' \
+             r'(?P<wr>[0-9.]*)%' \
+             r'(?P<matches>[0-9]*).*'
 
 
 def load_ranked_info():
@@ -60,6 +67,7 @@ def parse_page(page):
     info = re.match(RANK_REGEX, rank_data)
     if info is not None:
         info = info.groupdict()
+        info['percentile'] = '%.2f' % (100.0 - float(info['percentile']))
     else:
         info = {}
     return info
