@@ -14,7 +14,10 @@ NOTE: For these scripts to work the profile being requested cannot be hidden!
    1) Download the Desired script folder (it will download as FOLDER_NAME.zip)
    2) In Streamlabs chatbot select the scripts menu.
    3) Select the import script button.
-   4) Navigate to and select the downloaded SmiteRank.zip file.
+   4) Navigate to and select the downloaded zip file.
+   5) Enable the script with the checkbox in the streamlabs chatbot UI.
+   6) Adjust the settings for your stream.
+   7) Enjoy!
  
 # SmiteRank
    This is the script which loads the streamer's ranked information.
