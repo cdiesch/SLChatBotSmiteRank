@@ -32,7 +32,6 @@ tp_key = '$tp'
 elo_key = '$elo'
 url_key = '$sg_page'
 user_tag = '$username'
-percentile_tag = '$percentile'
 win_tag = '$wins'
 loss_tag = '$losses'
 wr_tag = '$winrate'
@@ -93,11 +92,9 @@ def Execute(data):
             replace(tp_key, info['tp']).\
             replace(elo_key, info['elo']).\
             replace(url_key, info['url']).\
-            replace(percentile_tag, info['percentile']).\
             replace(win_tag, info['win']).\
             replace(loss_tag, info['loss']).\
             replace(wr_tag, info['wr']).\
-            replace(percentile_tag, info['percentile']).\
             replace(matches_tag, info['matches'])
         # print(message)
         Parent.SendTwitchMessage(message)
