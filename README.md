@@ -42,5 +42,4 @@
    9) $losses - The number of losses.
    10) $matches - The total number of matches played.
    11) $winrate - The winrate.
-   12) $percentile - The percentile of the player.
        
