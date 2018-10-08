@@ -4,6 +4,8 @@
    
 NOTE: For these scripts to work the profile being requested cannot be hidden!
 
+UPDATE: The script now support loading infromation for players who are qualifying, this feature may have issues however.
+
 ## Setup
 
 ### Requirements:
