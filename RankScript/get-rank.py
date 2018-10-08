@@ -17,13 +17,16 @@ _parser = argparse.ArgumentParser(prog=_name, usage=_usage, description=_descrip
 
 _parser.add_argument('ign')
 _parser.add_argument('mode')
-_parser.add_argument('-p', '--platform', default='PC', choices=['PC', 'Xbox', 'Playstation'])
+_parser.add_argument('-p', '--platform', default='PC', choices=['PC', 'pc',
+                                                                'Xbox', 'xbox',
+                                                                'Playstation', 'playstation'])
 
 _ARGS = None
 
 command = '!rank'
 IGN_TO_SG = 'http://smite.guru/profile/$platform/$player_name/ranked'
-PLATFORM_MAPPING = {'PC': "pc", 'Xbox': 'xb', 'Playstation': 'ps'}
+PLATFORM_MAPPING = {'pc': 'pc', 'xbox': 'xb', 'playstation': 'ps'}
+
 RANK_REGEX = r'.*%(?P<division>[A-Za-z ]*)' \
              r'(?P<elo>[0-9,]*)Elo' \
              r'(?P<tp>[0-9]*)TP' \
@@ -72,5 +75,6 @@ def parse_page(page):
 
 if __name__ == '__main__':
     _ARGS = _parser.parse_args()
+    _ARGS.platform = _ARGS.platform.lower()
     print(load_ranked_info())
 

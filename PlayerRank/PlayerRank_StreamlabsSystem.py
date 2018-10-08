@@ -12,7 +12,7 @@ ScriptName = 'PlayerRank'
 Website = 'http://wwww.twitch.tv/TheKingSalamander'
 Description = 'Gets the smite rank of a given player.'
 Creator = 'Chris Diesch'
-Version = '1.0.1'
+Version = '1.1.0'
 
 hdr = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari'
                      '/537.11'}
@@ -73,15 +73,18 @@ def Execute(data):
     # Is this a chat message and is it the !rank command?
     if data.IsChatMessage() and data.GetParam(0).lower() == settings[cmd_tag]:
         info = {}
-        if data.GetParamCount() == 2:
+        if data.GetParamCount() == 2 or data.GetParamCount() == 3:
             ign = data.GetParam(1)
+            platform = settings[platform_tag]
+            if data.GetParamCount == 3:
+                platform = data.GetParam(2)
             try:
                 message = ''
                 cmd = r'C:\Python27\python.exe "%s" "%s" "%s" --platform "%s"' % \
                       (rank_prog,
                        ign,
                        settings[mode_tag],
-                       settings[platform_tag])
+                       platform)
                 with os.popen(cmd) as out:
                     message += out.read().replace(os.linesep, '')
                 info = json.loads(message)
@@ -107,7 +110,8 @@ def Execute(data):
                                 '  Data:\n'
                                 '%s' % (str(ex), json.dumps(info, indent=3)))
         else:
-            Parent.SendTwitchMessage('The %s command was not entered properly, the format is %s [IGN]' %
+            Parent.SendTwitchMessage('The %s command was not entered properly, the format is "%s [IGN]" or '
+                                     '"%s [IGN] [PLATFORM]"' %
                                      (settings[cmd_tag], settings[cmd_tag]))
 
 
