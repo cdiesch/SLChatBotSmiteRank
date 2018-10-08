@@ -27,13 +27,21 @@ command = '!rank'
 IGN_TO_SG = 'http://smite.guru/profile/$platform/$player_name/ranked'
 PLATFORM_MAPPING = {'pc': 'pc', 'xbox': 'xb', 'playstation': 'ps'}
 
-RANK_REGEX = r'.*%(?P<division>[A-Za-z ]*)' \
+RANK_REGEX = r'.*%(?P<division>[-A-Za-z ]*)' \
              r'(?P<elo>[0-9,]*)Elo' \
              r'(?P<tp>[0-9]*)TP' \
              r'(?P<win>[0-9]*)W' \
              r'(?P<loss>[0-9]*L)' \
              r'(?P<wr>[0-9.]*)%' \
              r'(?P<matches>[0-9]*).*'
+
+QUALIFYING_REGEX = r'.*-(?P<division>[A-Za-z ]*)' \
+                   r'(?P<elo>[0-9,]*)Elo' \
+                   r'(?P<tp>[0-9]*)TP' \
+                   r'(?P<win>[0-9]*)W' \
+                   r'(?P<loss>[0-9]*L)' \
+                   r'(?P<wr>[0-9.]*)%' \
+                   r'(?P<matches>[0-9]*).*'
 
 
 def load_ranked_info():
@@ -66,7 +74,11 @@ def parse_page(page):
         if _ARGS.mode in text:
             rank_data = text.replace(_ARGS.mode, '')
             break
-    info = re.match(RANK_REGEX, rank_data)
+    if 'Qualifying' in rank_data:
+        info = re.match(QUALIFYING_REGEX, rank_data)
+    else:
+        info = re.match(RANK_REGEX, rank_data)
+
     if info is not None:
         info = info.groupdict()
     else:
