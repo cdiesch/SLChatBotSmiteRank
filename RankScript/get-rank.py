@@ -74,7 +74,7 @@ def parse_page(page):
         if _ARGS.mode in text:
             rank_data = text.replace(_ARGS.mode, '')
             break
-    if 'Qualifying' in rank_data:
+    if 'Qualifying' in rank_data or 'Season ' in rank_data:
         info = re.match(QUALIFYING_REGEX, rank_data)
     else:
         info = re.match(RANK_REGEX, rank_data)

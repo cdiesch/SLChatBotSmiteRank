@@ -85,7 +85,6 @@ def Init():
 # Execute definition
 def Execute(data):
     # Is this a chat message and is it the !rank command?
-    print(data.GetParamCount())
     if data.IsChatMessage() and data.GetParam(0).lower() == settings[cmd_tag]:
         info = {}
         if data.GetParamCount() == 2 or data.GetParamCount() == 3:
@@ -117,15 +116,15 @@ def Execute(data):
                     replace(wr_tag, info['wr']).\
                     replace(matches_tag, info['matches'])
                 # print(message)
-                print(message)
+                Parent.SendTwitchMessage(message)
             except Exception as ex:
-                print('@%s Failed to load data for user %s' % (data.User, ign))
+                Parent.SendTwitchMessage('@%s Failed to load data for user %s' % (data.User, ign))
                 raise Exception('Error: Unable to load data for user\n'
                                 '  Message: %s\n'
                                 '  Data:\n'
                                 '%s' % (str(ex), json.dumps(info, indent=3)))
         else:
-            print('The %s command was not entered properly, the format is "%s [IGN]" or '
+            Parent.SendTwitchMessage('The %s command was not entered properly, the format is "%s [IGN]" or '
                                      '"%s [IGN] [PLATFORM]"' %
                                      (settings[cmd_tag], settings[cmd_tag]))
 
