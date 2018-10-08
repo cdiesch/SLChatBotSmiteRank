@@ -62,8 +62,8 @@ NOTE: For these scripts to work the profile being requested cannot be hidden!
 ### Game Mode:
  The game mode you wish to load stats for (Ranked: Conquest, Ranked: Duel, Ranked Joust (3v3) are currently supported).
  
-### Platform:
- The platform to load profiles from (PC, Xbox, or Playstation). Currently this will be the only supported platform, but this will be changed to be the default platform and support other platforms by including them in the command (ex: !player KingSalamander PC).
+### Default Platform:
+ The platform to use when no platform is provided by the user.
  
 ### Command:
  The command you wish the script to execute on (!player by default).
